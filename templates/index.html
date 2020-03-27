@@ -1,0 +1,49 @@
+{% include 'header.html'%}
+
+    <h3>Welcome to Tweeter Earth</h3>
+    <!--User input-->
+    <form method="post" action="">
+      <input type="text" name="trend">
+      <input class="button" type="submit">
+    </form>
+
+
+    <!--Array of coordinates-->
+    <script>
+      // create list of coordinates
+      var geocodes = [{{ ', '.join(data) }}];
+    </script>
+
+
+    <!--The div element for the map -->
+    <div id="map"></div>
+    <script>
+      // Initialize and add the map
+      function initMap() {
+
+          var center = {lat: 0, lng: 0}; // center of map
+          // initialize map
+          var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 2,
+            center: center
+          });
+
+          var i = 0;
+          while (i < {{len}}) { // iterate through coordinates
+            // grab coordinate from provided list
+            var myLatLng = {lat: parseFloat(geocodes[i]), lng: parseFloat(geocodes[i + 1])};
+            // place marker on the map
+            var marker = new google.maps.Marker({
+              position: myLatLng,
+              map: map,
+              title: 'Tweet'
+            });
+            i += 2;
+          }
+      }
+    </script>
+    <!-- API Key here -->
+     <script async defer src="https://maps.googleapis.com/maps/api/js?key=API_KEY_HERE&callback=initMap"
+  type="text/javascript"></script>
+  </body>
+</html>
