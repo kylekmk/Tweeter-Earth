@@ -29,6 +29,8 @@ token_secret = 'Access token secret'
 * On the Google Map it will display where these tweets were posted if they shared their location
 * If your searches result in few markers I recommend you try #tweeterEarth as your search term to demonstrate how it works with plenty of location data
 
+![alt text](https://github.com/kylekmk/Tweeter-Earth/blob/master/map_example.png?raw=true)
+
 #### Limitations
 * The amount of markers shown depends on the amount data your API key has access to. 
 * If you are using the free version, most searches will result in few markers because Twitter will only grab the 100 most recent tweets with that phrase and only some tweets have location data.
